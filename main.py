@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    tetris.prep()
     tetris.menu()
 
 if __name__ == "__main__":

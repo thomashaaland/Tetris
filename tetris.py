@@ -1,38 +1,48 @@
 # Tetris with python 3.6.7
-
 import math, sys, pygame
 import numpy as np
 import time
 import random
 
-pygame.init()
-pygame.font.init()
 
-# Text preparation
-pygame.display.set_caption('Tetris')
-tetrisFont = pygame.font.SysFont('freesansbold.ttf', 32)
-tetrisFontSmall = pygame.font.SysFont('freesansbold.ttf', 24)
+def start_game():
+    
+    pygame.init()
+    pygame.font.init()
+    
+    # Text preparation
+    pygame.display.set_caption('Tetris')
 
-color = {'Black':[0,0,0],
-         'White':[255,255,255],
-         'Red':[255,0,0],
-         'Pink':[255,125,125],
-         'Green':[0,255,0],
-         'lGreen':[125,255,125],
-         'Blue':[0,0,255],
-         'lBlue':[125,125,255],
-         'Purple':[125,0,125]}
+    global tetrisFont
+    tetrisFont = pygame.font.SysFont('freesansbold.ttf', 32)
 
-cCode = {0: 'Black',
-         1: 'White',
-         2: 'Red',
-         3: 'Pink',
-         4: 'Green',
-         5: 'lGreen',
-         6: 'Blue',
-         7: 'lBlue',
-         8: 'Purple'}
+    global tetrisFontSmall
+    tetrisFontSmall = pygame.font.SysFont('freesansbold.ttf', 24)
 
+    global color
+    color = {'Black':[0,0,0],
+             'White':[255,255,255],
+             'Red':[255,0,0],
+             'Pink':[255,125,125],
+             'Green':[0,255,0],
+             'lGreen':[125,255,125],
+             'Blue':[0,0,255],
+             'lBlue':[125,125,255],
+             'Purple':[125,0,125]}
+
+    global cCode
+    cCode = {0: 'Black',
+             1: 'White',
+             2: 'Red',
+             3: 'Pink',
+             4: 'Green',
+             5: 'lGreen',
+             6: 'Blue',
+             7: 'lBlue',
+             8: 'Purple'}
+    # Start by initializing menu after start
+    menu()
+    
 class Cube(object):
     def __init__(self, pos, color=[150,150,150]):
         self.pos = pos
@@ -543,4 +553,4 @@ def main():
 
 
 if __name__ == "__main__":
-    menu()
+    start_game()
